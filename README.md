@@ -1,6 +1,6 @@
 ## Create tables
 
-`` sql
+``` sql
 CREATE TABLE IF NOT EXISTS Author (
 id SERIAL PRIMARY KEY,
 name VARCHAR(100),
@@ -25,10 +25,10 @@ email VARCHAR(100) NOT NULL,
 borrowed_books INT[]                
 );
 
-``
+```
 
 ## Inserting Data
-`` sql
+``` sql
 INSERT INTO Author (id, name, nationality, birth_year, death_year) VALUES
 
 ('George Orwell', 'British', 1903, 1950),
@@ -71,4 +71,4 @@ INSERT INTO Patrons (id,name, email, borrowed_books) VALUES
 (9, 'Ivy Taylor', 'ivy@example.com', ARRAY[]::INT[]),
 (10, 'Jack Anderson', 'jack@example.com', ARRAY[7, 8]);
 
-``
+```
