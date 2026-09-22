@@ -72,3 +72,38 @@ INSERT INTO Patrons (id,name, email, borrowed_books) VALUES
 (10, 'Jack Anderson', 'jack@example.com', ARRAY[7, 8]);
 
 ```
+## Get all Books
+``` sql
+SELECT * FROM BOOKS;
+
+SELECT * FROM BOOKS
+ WHERE title = 'Brave New World';
+
+ SELECT * FROM Books 
+WHERE authorId = 2;
+
+SELECT * FROM Books 
+WHERE available = true;
+
+
+UPDATE Books
+SET available = false
+WHERE title = 'To Kill a Mockingbird';
+
+UPDATE Books
+SET genres[2] = 'Historical Novel'
+WHERE id = 7;
+
+ UPDATE Books
+ SET genres = genres || ARRAY['horror']
+WHERE id = 3;
+
+UPDATE Books
+SET genres = array_prepend('action', genres)
+WHERE id = 7;
+
+
+UPDATE Patrons
+SET borrowed_books = array_append(borrowed_books, 8)
+WHERE id = 3;
+```
