@@ -106,4 +106,14 @@ WHERE id = 7;
 UPDATE Patrons
 SET borrowed_books = array_append(borrowed_books, 8)
 WHERE id = 3;
+
+UPDATE Patrons
+SET[1] = 3
+WHERE id = 1;
+```
+
+``` bash
+UPDATE Patrons
+SET[1] = 3
+WHERE id = 1;
 ```
