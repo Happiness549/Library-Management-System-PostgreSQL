@@ -72,7 +72,7 @@ INSERT INTO Patrons (id,name, email, borrowed_books) VALUES
 (10, 'Jack Anderson', 'jack@example.com', ARRAY[7, 8]);
 
 ```
-## Get all Books
+## Read Operations (Queries)
 ``` sql
 SELECT * FROM BOOKS;
 
@@ -85,10 +85,15 @@ WHERE authorId = 2;
 SELECT * FROM Books 
 WHERE available = true;
 
+```
+## Update Operations
 
+``` sql
 UPDATE Books
 SET available = false
-WHERE title = 'To Kill a Mockingbird';
+WHERE title = 'To Kill a Mockingbird'; 
+
+//
 
 UPDATE Books
 SET genres[2] = 'Historical Novel'
@@ -102,6 +107,7 @@ UPDATE Books
 SET genres = array_prepend('action', genres)
 WHERE id = 7;
 
+//*Adding a book to a patron*//
 
 UPDATE Patrons
 SET borrowed_books = array_append(borrowed_books, 8)
@@ -110,10 +116,40 @@ WHERE id = 3;
 UPDATE Patrons
 SET[1] = 3
 WHERE id = 1;
+
+```
+## Sprint 5: Delete Operations
+``` sql
+
+DELETE FROM Books
+WHERE title = 'The Catcher in the Rye';
+
+DELETE FROM Author
+WHERE id = 10;
+
 ```
 
-``` bash
-UPDATE Patrons
-SET[1] = 3
-WHERE id = 1;
+## Sprint 6: Advanced Queries
+``` sql
+
+SELECT * FROM Books
+WHERE published_year > 1950;
+
+SELECT * FROM Author
+WHERE nationality = 'American';
+
+UPDATE Books
+SET available = true;
+
+SELECT * FROM Books
+WHERE available = true
+AND published_year > 1950;
+
+SELECT * FROM Author
+WHERE name LIKE '%George%';
+
+UPDATE Books
+SET published_year = pubished_yeare + 1
+WHERE id= 10;
+
 ```
